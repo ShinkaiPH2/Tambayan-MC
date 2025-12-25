@@ -133,18 +133,30 @@
 
         /* --- UPDATED STATUS PILL --- */
         .status-pill {
-            display: flex;
-            align-items: center;
-            gap: 15px; /* Space between dot and text */
-            background: #4f46e5; /* The Indigo/Purple color */
+            display: inline-flex; /* Keeps the box tight to the content */
+            align-items: center;  /* CENTERS the dot vertically */
+            gap: 16px;            /* Space between dot and text */
+            background: #4f46e5;
             padding: 16px 24px;
             font-family: 'JetBrains Mono', monospace;
             font-size: 1rem;
             
             /* The "Blocky" Look */
             border: 4px solid #000;
-            border-radius: 0px; /* Sharp corners */
+            border-radius: 0px;
             box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* This container holds the two text parts together */
+        .status-text {
+            display: flex;
+            gap: 10px; /* Space between "SERVER ONLINE" and "68..." */
+            line-height: 1; /* Prevents text from pushing layout up/down */
+        }
+        
+        .status-label {
+            color: rgba(255, 255, 255, 0.5);
+            font-weight: 700;
         }
         
         .status-value {
@@ -152,14 +164,15 @@
             font-weight: 700;
             text-transform: uppercase;
         }
-
+        
         .status-dot {
-            width: 10px;
-            height: 10px;
+            width: 12px;
+            height: 12px;
             background: #4ade80;
             border-radius: 50%;
             box-shadow: 0 0 10px #4ade80;
             animation: pulse 2s infinite;
+            flex-shrink: 0; /* Prevents dot from getting squished */
         }
 
         /* --- WORLD CHUNK (The Ground) --- */
@@ -343,11 +356,12 @@
         <h1 class="main-title">TAMBAYAN MC</h1>
         
         <div class="cta-container">
-            <button class="discord-btn" onclick="window.open('https://discord.gg/WafHkxt8Pg', '_blank')>Join Discord</button>
+            <button class="discord-btn" onclick="window.open('https://discord.gg/WafHkxt8Pg', '_blank')">Join Discord</button>
             
             <div class="status-pill">
                 <div class="status-dot"></div>
-                <div>
+                <div class="status-text">
+                    <span class="status-label">SERVER ONLINE:</span>
                     <span class="status-value">68 UNIQUE PLAYERS</span>
                 </div>
             </div>
