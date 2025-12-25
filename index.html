@@ -131,17 +131,31 @@
             box-shadow: 0px 0px 0px rgba(0,0,0,0.4);
         }
 
-        /* --- STATUS INDICATOR --- */
+        /* --- UPDATED STATUS PILL --- */
         .status-pill {
             display: flex;
             align-items: center;
-            gap: 12px;
-            background: rgba(0, 0, 0, 0.6);
-            padding: 10px 20px;
-            border-radius: 8px;
+            gap: 15px; /* Space between dot and text */
+            background: #4f46e5; /* The Indigo/Purple color */
+            padding: 16px 24px;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
-            border: 2px solid rgba(255,255,255,0.1);
+            font-size: 1rem;
+            
+            /* The "Blocky" Look */
+            border: 4px solid #000;
+            border-radius: 0px; /* Sharp corners */
+            box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.3);
+        }
+        
+        .status-label {
+            color: rgba(255, 255, 255, 0.5); /* Faded 'SERVER ONLINE' */
+            font-weight: 700;
+        }
+        
+        .status-value {
+            color: #fff;
+            font-weight: 700;
+            text-transform: uppercase;
         }
 
         .status-dot {
@@ -338,8 +352,10 @@
             
             <div class="status-pill">
                 <div class="status-dot"></div>
-                <span style="color: #94a3b8">SERVER ONLINE:</span>
-                <span style="font-weight: 700; color: #fff;">68 UNIQUE PLAYERS</span>
+                <div>
+                    <span class="status-label">SERVER ONLINE:</span>
+                    <span class="status-value">68 UNIQUE PLAYERS</span>
+                </div>
             </div>
         </div>
     </section>
